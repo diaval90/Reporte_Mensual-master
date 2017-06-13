@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Registro
+{% endblock  %}
+
+{% block content %}
+	
+	<div class="row content-header">
+	<div class="container">
+      <div  id="contenedor" class="col s12 m12 l12">
+        <div id="car" class="card z-depth-3 hoverable" >
+			<h5 id="cn" align="center "><p>REGISTRAR INSTRUCTOR</p></h5>
+			<div class="divider"></div><br>
+			<form action="." method="POST" >
+				{% csrf_token %}
+				{{ form.as_p }}
+				<center><button class="btn "type="submit"> Registrar </button></center>				
+			</form>		
+		</div>
+	</div>
+</div>
+</div>
+	
+{% endblock  %}

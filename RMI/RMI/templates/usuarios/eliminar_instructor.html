@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Reporte Mensual Instructor
+{% endblock  %}
+
+{% block content %}
+	<div class="row content-header">
+	<div class="container">
+      <div  id="contenedor" class="col s12 m12 l12">
+        <div id="car" class="card z-depth-3 hoverable" >
+			<h5 id="cn" align="center "><p>¿Esta seguro que desea eliminar el usuario {{usuario.first_name}} {{usuario.last_name}}?</p></h5>
+			<!--<div class="divider"></div><br>-->
+			<br>
+			<center>
+				<a class="btn" href="/confirmar_eliminar_instructor/{{usuario.id}}" title="">Confirmar</a>
+				<a class="btn" href="javascript:window.history.back();" title="">Cancelar</a>				
+			</center>			
+		</div>
+	</div>
+</div>
+</div>
+
+
+
+
+	
+	
+{% endblock  %}

@@ -1,0 +1,246 @@
+{% extends 'base.html' %}
+{% block content %}
+
+	<div class="row">
+
+	<div class="teal darken-1 col s12 m12  l12" align="center">
+		<span class="white-text" >
+				<h5>
+				Comisionado, {{comisionado.nombres_comisionado}} 
+				</h5>
+		</span>
+	</div>
+		<table class="teal card col s12 m12 l12 striped">
+			<thead>
+			  <tr class="white-text">
+				  <th>Campo</th>
+				  <th>Descripcion</th>
+			  </tr>
+			</thead>
+
+			<tbody class="teal lighten-4">
+						<tr>
+							<td>
+								<strong> nombres_comisionado </strong>
+							</td>
+							<td>
+								{{comisionado.nombres_comisionado}}
+							</td>
+						<tr>
+							<td>
+								<strong> identificacion </strong>
+							</td>
+							<td>
+								{{comisionado.identificacion}}
+
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong> celular </strong>
+							</td>
+							<td>
+								{{comisionado.celular}}
+
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong> email </strong>
+							</td>
+							<td>
+
+								{{comisionado.email}}
+							</td>
+							
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong> fecha_de_nacimiento </strong>
+							</td>
+							<td>
+								{{comisionado.fecha_de_nacimiento}}
+
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong> tipo_cuenta </strong>
+							</td>
+							<td>
+								{{comisionado.tipo_cuenta}}
+
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong> numero_cuenta </strong>
+							</td>
+							<td>
+								{{comisionado.numero_cuenta}}
+
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong> banco </strong>
+							</td>
+							<td>
+								{{comisionado.banco}}
+
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong> tipo_vinculacion </strong>
+							</td>
+							<td>
+								{{comisionado.tipo_vinculacion}}
+
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong> numero_contrato </strong>
+							</td>
+							<td>
+								{{comisionado.numero_contrato}}
+
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong> objeto_contractual </strong>
+							</td>
+							<td>
+								{{comisionado.objeto_contractual}}
+
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong> vencimiento_contrato </strong>
+							</td>
+							<td>
+								{{comisionado.vencimiento_contrato}}
+
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong> asignacion_mensual </strong>
+							</td>
+							<td>
+								{{comisionado.asignacion_mensual}}
+
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong> grado </strong>
+							</td>
+							<td>
+								{{comisionado.grado}}
+
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong> supervisor </strong>
+							</td>
+							<td>
+								{{comisionado.supervisor}}
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong> cargo </strong>
+
+							</td>
+							<td>
+								{{comisionado.cargo}}
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong> regional </strong>
+							</td>
+							<td>
+								{{comisionado.regional}}
+						
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong> centro </strong>
+							</td>
+							<td>
+								{{comisionado.centro}}
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong> ciudad_origen </strong>
+							</td>
+							<td>
+
+								{{comisionado.ciudad_origen}}
+
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong> ida_fecha_salida </strong>
+							</td>
+							<td>
+								{{comisionado.ida_fecha_salida}}
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong> ida_hora_salida </strong>
+							</td>
+							<td>
+								{{comisionado.ida_hora_salida}}
+
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong> regreso_fecha_partida </strong>
+							</td>
+							<td>
+								{{comisionado.regreso_fecha_partida}}
+
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong> regreso_hora_partida </strong>
+							</td>
+							<td>
+								{{comisionado.regreso_hora_partida}}		
+
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong> firma </strong>
+							</td>
+							<td>
+
+								<img src="/media/{{comisionado.firma}}" width="100px" heigth="100px"> 							 
+							</td>
+						</tr>
+			</tbody>
+
+		</table>
+
+		<a class="white-text btn waves-effect waves-light teal" href="{% url 'listado_comision' %}" >
+			Regresar a la  lista 
+			<i class="material-icons left">view_list</i>
+		</a>
+
+	</div>
+{% endblock %}

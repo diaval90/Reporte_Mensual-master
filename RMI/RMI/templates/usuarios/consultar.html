@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Reporte Mensual Instructor
+{% endblock  %}
+
+{% block content %}
+<div align="center">
+    <div id="car" class="card z-depth-3 hoverable" >
+		<h5 id="cn" align="center "><p><b>{{mes}}</b>: TOTAL REPORTES <b>{{total_reportes}}</b> DE <b>{{instructores}}</b> INSTRUCTORES REGISTRADOS</p></h5>
+		<div class="divider"></div><br>
+		<br>
+		<div >
+			<head>
+			<title>Consulta:{% if query %} Results{% endif %}</title>
+			</head>
+			<div>
+				<form action="." method="GET">
+					<!--<label for="q">Instructor: </label>-->				
+					<input style='width:50%;' type="text" name="q" value="{{ query|escape }}" title="programa">
+					<br>			
+					<button  style="btn" class="btn" type="submit" >Buscar </button>
+				</form>
+			</div>
+		</div>
+		{% if query %}
+		<br>
+		<h5>Resultados para "{{ query|escape }}":</h5>
+			{% if results %}			    
+				<table class="col s12 bordered responsive-table highlight">
+					<theader>
+						<tr>
+							<th>Nombres</th>
+							<th>Apellidos</th>	
+							<th>Fecha</th>	
+							<th>Nombre Adjunto</th>
+							
+							<th></th>												
+						</tr>
+					</theader>					
+					<tbody>
+						{% for c in results %}
+						<tr>
+							<td>{{ c.usuario.first_name }}</td>
+							<td>{{ c.usuario.last_name }}</td>
+							<td>{{ c.fecha|date:"d/m/Y, H:i" }}</td>	
+							<td>{{ c.nombre_adjunto }}</td>
+							
+							<td><a href="{{c.adjunto_exel.url}} " title="">(Descargar)</a></td>						
+						</tr>
+						{% endfor %}			
+					</tbody>							
+				</table>
+			{% else %}
+			  <p>No se encuentra la búsqueda solicitada</p>
+			{% endif %}
+		{% endif %}		
+		<br><br><br><br>		
+		{% if mostrar %}
+			{% if consultar %}						
+					<!--<li> Tipo de pqrs:{{ p.tipo_pqrs}}; Mensaje: {{ p.mensaje}}</li>-->
+					<table class="col s12 bordered responsive-table highlight">
+						<theader>
+							<tr>
+								<th>Nombres</th>
+								<th>Apellidos</th>	
+								<th>Fecha</th>	
+								<th>Nombre Adjunto</th>
+								
+								<th></th>												
+							</tr>
+						</theader>					
+						<tbody>
+							{% for c in consultar %}
+							<tr>
+								<td>{{ c.usuario.first_name }}</td>
+								<td>{{ c.usuario.last_name }}</td>
+								<td>{{ c.fecha|date:"d/m/Y, H:i" }}</td>	
+								<td>{{ c.nombre_adjunto }}</td>
+								
+								<td><a href="{{c.adjunto_exel.url}} " title="">(Descargar)</a></td>						
+							</tr>
+							{% endfor %}			
+						</tbody>							
+					</table>									
+			{% else %}
+				<center><p><h5>No se han subido reportes en este mes</h5></p></center>				
+			{% endif %}	
+			<br>
+			{% if consultar %}
+			<div class = "pagination">
+				<div class = "pagination pagination-centered">
+					<ul class="pag">
+						<li><a href="/consultar/page/1/{{num_mes}}"> {{primera}} </a></li>
+						{% if consultar.has_previous %}
+							<li><a href="/consultar/page/{{ consultar.previous_page_number }}/{{num_mes}}" > Anterior</a></li>
+						{% else %}
+							<li><a href="#">Anterior</a></li>
+						{% endif %}
+
+						{% if consultar.has_next %}
+							<li><a href="/consultar/page/{{ consultar.next_page_number }}/{{num_mes}}" > Siguiente</a></li>
+						{% else %}
+							<li><a href="#"> Siguiente</a></li>	
+						{% endif %}
+							<li><a href="/consultar/page/{{ consultar.paginator.num_pages }}/{{num_mes}}"> {{ultima}} </a></li>
+					</ul>			
+				</div>		
+			</div>
+					<br>	
+					<h5>Pagina {{ consultar.number }} de {{ consultar.paginator.num_pages }}</h5>
+			{% endif %}									
+		{% endif %}
+		<br>
+		<center>
+			<h6><a href="{% url 'vista_index' %}">(Volver al inicio)</a></h6>
+			<h6><a href="/consultar_sin_subir/page/1/{{num_mes}}">(instructores sin subir)</a></h6>
+		</center>
+			
+	</div>			
+</div>	
+
+{% endblock  %}

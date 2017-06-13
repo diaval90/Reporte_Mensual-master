@@ -1,0 +1,301 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+.parallax-container {
+      height: 200px;
+    }
+html,body{
+	
+	height: *;
+	margin: 0px;	
+	position: relative;
+	background-color: #F6F4F1;
+}
+/*navegador*/
+nav{
+	background-color: #2964ae !important;
+	margin-bottom: 25px;
+	height: 70px;
+}
+
+ul.pag {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+ul.pag li {display: inline;}
+
+ul.pag li a {
+    
+    padding: 6px;
+    text-decoration: none;
+}
+ul.pag li a:hover:not(.active) {
+	background-color: #ddd;
+	border-radius: 5px;
+}
+
+.cambio{
+	  border: none;
+	  border-radius: 2px;
+	  display: inline-block;
+	  height: 36px;
+	  line-height: 36px;
+	  outline: 0;
+	  padding: 0 2rem;
+	  text-transform: uppercase;
+	  vertical-align: middle;
+	  -webkit-tap-highlight-color: transparent;
+	  text-decoration: none;
+	  color: #fff;
+	  background-color: #26a69a;
+	  text-align: center;
+	  letter-spacing: .5px;
+	  transition: .2s ease-out;
+	  cursor: pointer;
+	  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.24), 0 2px 4px 0 rgba(0,0,0,0.19);
+
+}
+
+.cambio:hover{
+	background: rgba(0,0,0,0);
+	color: #26a69a;
+	/*box-shadow: inset 0 0 0 3px #FF8900;*/
+	box-shadow: 0 4px 6px 0 rgba(0,0,0,0.24), 0 6px 18px 0 rgba(0,0,0,0.19);
+}
+
+.btn:hover {
+	 background: rgba(0,0,0,0);
+	 color: #FF8900;
+	 /*box-shadow: inset 0 0 0 3px #FF8900;*/
+	 box-shadow: 0 4px 6px 0 rgba(0,0,0,0.24), 0 6px 18px 0 rgba(0,0,0,0.19);
+}
+#botton_tam{
+	width:150px; 
+	height:35px;
+}
+#colnav{
+	background-color: #2964ae;
+}
+/* dropdown menú*/
+#ty{
+	background: #2964ae !important;
+	color: #fff;
+	font-size: 18px;
+	border: none;
+}
+#ty:hover{
+	background: #70AAF2;
+	border: none;
+}
+#cn{
+	text-align: center;
+	font-weight: ;
+	
+}
+
+
+#footer{
+	margin-top: 266px;
+	background: #2964ae;
+	position: relative;
+	height: auto;
+	bottom: 0;
+	margin-bottom: 0px;
+}
+/*logo*/
+#logo{
+	margin-top: 1px;width: 100px;	height: 60px;margin-bottom: -28px;
+}
+/*contendedor*/
+#contenedor{
+	height: auto;
+	background: #F6F4F1;
+
+}
+.content-header{
+	margin-top: 20px !important;
+	margin-left: 10px !important;
+}
+/*slider*/
+.slider .indicators .indicator-item {
+	background-color: #2964ae;
+}
+.slider .indicators .indicator-item.active {
+  background-color: #000;
+}
+#imagenslider{
+	width: 1024;
+	height: 525px;
+}
+
+/*botones*/
+.waves-effect {
+	background: #2964ae;
+	border-radius: 4px;
+	font-size: 12px;
+	width: auto;
+	padding-left: 4px;
+	padding-right: 4px;
+	text-align: left;
+	color: #ffffff;
+}
+.waves-effect:hover{
+	background: #70AAF2;
+}
+.boton{
+	background: #2964ae;
+	border-radius: 4px;
+	font-size: 12px;
+	width: auto;
+	padding-left: 5px;
+	padding-right: 5px;
+	color: #ffffff;
+}
+.boton:hover{
+	background: #70AAF2;
+}
+
+#qw{
+	color: white;
+}
+
+/*buscador estilo*/
+#m{
+	color: white;
+	float: right;
+	margin-left: 10px;
+}
+/* arreglo de la imagen de lugares del menú 
+#imagen{
+	margin-top: 45px;
+	width: 530px;
+	height: 450px;
+}*/
+table{
+	width: auto;
+
+}
+#table{
+	font-size: 18px;
+	width: auto;
+	height: auto;
+}
+
+#au{
+	margin-left: 130px;
+
+}
+#dg{
+	margin-right: 30px;
+
+}
+
+.striped{
+	width: auto;
+}
+/*paginadores*/
+#paginador{
+	float: right;
+	font-size: 18px;
+}
+#pag{
+	font-size: 18px;
+	color: black;
+}
+
+.select-dropdown{
+  background-color: #FFFFFF;
+  font-size: 18px;
+  color: #000000;
+}
+
+.menu-header .dropdown-content {
+	margin-top: 60px !important;
+	background-color: #2964ae;
+	width: 200px !important;
+}
+
+
+#id_tipo{
+	color: black;
+}
+element.style {
+    width: 389px;
+    position: absolute;
+    top: -255px;
+    left: 0px;
+    opacity: 1;
+    display: none;
+}
+/*cards contenido*/
+#card{
+	padding: 40px !important;
+	color: black;
+	height: auto;
+}
+#c{
+	padding:69px;
+	color: black;
+	height: auto;
+}
+#buscadoroyd{
+	margin-right: auto;
+	margin-left: 10px;
+	margin-top: 50px;
+	margin-bottom: auto;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	padding-left: 30px;
+	padding-right: 30px;
+	color: black;
+	height: auto;
+	font-size: 16px;
+
+}
+
+label{
+	color: black;
+	font-size: 20px;
+}
+#ca{
+	padding: 30px;
+	margin-right: -10px;
+	margin-left: 120px;
+}
+#car{
+	padding: 30px;	
+	padding-bottom: 60px;
+	height: auto;
+	margin-left: 30px;
+}
+/*boton modales*/
+#nomodal{
+	margin-right: 20px;
+	padding: 6px auto;
+	width: 50px;
+	text-align: center;
+}
+#simodal{
+	margin-right: 10px;
+	padding: 6px auto;        
+	width: 300px;
+	text-align: center;
+}
+
+
+/*
+azul #2964ae
+gris #979797
+negro #010101
+
+mensajes djan100
+https://www.youtube.com/watch?v=kb_BO1pvxd0
+*/
+input{
+	background: white;
+	
+}
+

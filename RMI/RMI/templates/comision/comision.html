@@ -1,0 +1,272 @@
+<html>
+<head>
+	<title>
+	Importar
+	</title>
+
+	<link rel="stylesheet" type="text/css" href="/media/css/materialize.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<meta charset="utf-8">
+</head>
+<body>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="/media/js/materialize.js"></script>
+	 <nav class="teal darken-1" role="navigation">
+		
+		<img src="/media/images/Logos-sena-blanco.png" width="110px" height="70px" float="left">
+		<a  href="{% url 'vista_index' %}" class="brand-logo hide-on-med-and-down" float="left"><font size="5">Reporte Mensual Instructor</font></a>		
+		  <ul class="right ">
+		  	<li>
+		  		<a  href="{% url 'vista_index' %}">Inicio</a></li>
+		  		<li><a  href="{% url 'comision' %}">Generar comision</a></li>
+		  	</ul>		  
+		
+	 </nav>  
+
+	<div class="container">
+	<div class= "row" align="center">
+	<h4>Subir Informacion</h4>
+	</div>
+
+
+	<div class="card">
+		Formato de  Fecha Año-Mes-Dia
+		<br>
+		Formato de  Hora 19:00 (Hora Militar)
+	</div>	
+	{% if info and i %}
+		<div class="card-panel lime center">
+			<h5 class ="">{{info}}
+			<a href="{% url 'comision' %}" class="btn btn-floating  orange"><i class="material-icons">skip_previous</i></a>
+		</h5>
+		</div>
+	{% elif info %}	
+		<div class="card-panel orange center">
+			<h5 class ="">{{info}}
+		</h5>
+		</div>
+
+	{% endif %}	
+	<div class="row">
+		<div class="col s12 m12 l12" >
+			<div class="card-panel">
+				<form method="POST" class="container" enctype = "multipart/form-data" align="">
+					{% csrf_token %}
+						<div class="">
+						<div class="teal darken-1 col s12 m12  l10 offset-l1" align="center">
+							<span class="white-text" >
+									<h5>
+									Datos del  Comisionado
+									</h5>
+							</span>
+						</div>
+						<div class="card-panel  col s12 m12  l10 offset-l1">
+						
+						{{ form_Com.nombres_comisionado.errors }}
+						{{ form_Com.nombres_comisionado.label }}
+						{{ form_Com.nombres_comisionado }}
+						
+						{{ form_Com.identificacion.errors }}
+						{{ form_Com.identificacion.label }}
+						{{ form_Com.identificacion }}
+						
+						{{ form_Com.celular.errors }}
+						{{ form_Com.celular.label }}
+						{{ form_Com.celular }}
+						
+						{{ form_Com.email.errors }}
+						{{ form_Com.email.label }}
+						{{ form_Com.email }}
+						
+						{{ form_Com.fecha_de_nacimiento.errors }}
+						{{ form_Com.fecha_de_nacimiento.label }}
+						{{ form_Com.fecha_de_nacimiento }}
+						
+						{{ form_Com.firma.errors }}
+						{{ form_Com.firma.label }}
+						{{ form_Com.firma }}
+						</div>
+					</div>
+
+						<div class="teal darken-1 col s12 m12  l10 offset-l1" align="center">
+							<span class="white-text" >
+									<h5>
+									Cuenta Bancaria
+									</h5>
+							</span>
+						</div>
+					<div class="card-panel  col s12 m6 offset-m6 l10 offset-l1">
+						<div>
+							
+						{{ form_Com.tipo_cuentaerrorslabel}}
+						{{ form_Com.tipo_cuenta.label }}
+						{{ form_Com.tipo_cuenta }}
+						
+						{{ form_Com.numero_cuenta.errors }}
+						{{ form_Com.numero_cuenta.label }}
+						{{ form_Com.numero_cuenta }}
+						
+						{{ form_Com.banco.errors }}
+						{{ form_Com.banco.label }}
+						{{ form_Com.banco }}
+						</div>
+					</div>
+
+						<div class="teal darken-1 col s12 m12  l10 offset-l1" align="center">
+							<span class="white-text" >
+									<h5>
+									Vinculación laboral
+									</h5>
+							</span>
+						</div>
+					<div class="card-panel  col s12 m6 offset-m6 l10 offset-l1">
+						<div>
+						
+						{{ form_Com.tipo_vinculacion.errors }}
+						{{ form_Com.tipo_vinculacion.label }}
+						{{ form_Com.tipo_vinculacion }}
+						
+						{{ form_Com.numero_contrato.errors }}
+						{{ form_Com.numero_contrato.label }}
+						{{ form_Com.numero_contrato }}
+						
+						{{ form_Com.objeto_contractual.errors }}
+						{{ form_Com.objeto_contractual.label }}
+						{{ form_Com.objeto_contractual }}
+						
+						{{ form_Com.vencimiento_contrato.errors }}
+						{{ form_Com.vencimiento_contrato.label }}
+						{{ form_Com.vencimiento_contrato }}
+						
+						{{ form_Com.asignacion_mensual.errors }}
+						{{ form_Com.asignacion_mensual.label }}
+						{{ form_Com.asignacion_mensual }}
+						</div>
+					</div>
+					
+						<div class="teal darken-1 col s12 m12  l10 offset-l1" align="center">
+							<span class="white-text" >
+									<h5>
+										Si es de Planta ingrese el Grado 
+									</h5>
+							</span>
+						</div>
+					<div class="card-panel  col s12 m6 offset-m6 l10 offset-l1">
+						<div>
+						
+						{{ form_Com.grado.errors }}
+						{{ form_Com.grado.label }}
+						{{ form_Com.grado }}
+						</div>
+					</div>
+
+						<div class="teal darken-1 col s12 m12  l10 offset-l1" align="center">
+							<span class="white-text" >
+									<h5>
+									Datos del Supervisor de Contrato
+									</h5>
+							</span>
+						</div>
+					<div class="card-panel  col s12 m6 offset-m6 l10 offset-l1">
+						<div>
+						
+						{{ form_Com.supervisor.errors }}
+						{{ form_Com.supervisor.label }}
+						{{ form_Com.supervisor }}
+						
+						{{ form_Com.cargo.errors }}
+						{{ form_Com.cargo.label }}
+						{{ form_Com.cargo }}
+						</div>
+					</div>
+
+						<div class="teal darken-1 col s12 m12  l10 offset-l1" align="center">
+							<span class="white-text" >
+									<h5>
+									Datos de la Regional
+									</h5>
+
+							</span>
+						</div>
+					<div class="card-panel  col s12 m6 offset-m6 l10 offset-l1">
+						<div>
+						
+						{{ form_Com.regional.errors }}
+						{{ form_Com.regional.label }}
+						{{ form_Com.regional }}
+						
+						{{ form_Com.centro.errors }}
+						{{ form_Com.centro.label }}
+						{{ form_Com.centro }}
+						</div>
+					</div>
+
+
+						<div class="teal darken-1 col s12 m12  l10 offset-l1" align="center">
+							<span class="white-text" >
+									<h5>
+									Datos del Tiquete
+									</h5>
+							</span>
+						</div>
+					<div class="card-panel  col s12 m6 offset-m6 l10 offset-l1">
+						<div>
+						
+						{{ form_Com.ciudad_origen.errors }}
+						{{ form_Com.ciudad_origen.label }}
+						{{ form_Com.ciudad_origen }}
+						
+						{{ form_Com.ida_fecha_salida.errors }}
+						{{ form_Com.ida_fecha_salida.label }}
+						{{ form_Com.ida_fecha_salida }}
+						
+						{{ form_Com.ida_hora_salida.errors }}
+						{{ form_Com.ida_hora_salida.label }}
+						{{ form_Com.ida_hora_salida }}
+						
+						{{ form_Com.regreso_fecha_partida.errors }}
+						{{ form_Com.regreso_fecha_partida.label }}
+						{{ form_Com.regreso_fecha_partida }}
+						
+						{{ form_Com.regreso_hora_partida.errors }}
+						{{ form_Com.regreso_hora_partida.label }}
+						{{ form_Com.regreso_hora_partida }}
+						</div>
+					</div>
+					<div align='center'>
+					<button type="submit" class="save btn btn-default orange  darken-2">Guardar Resultados</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	{% for m in messages %}
+		{{m}}
+	{% endfor %}
+
+	</div>
+<script>
+	$(document).ready(function(){
+		$('select').material_select();
+		
+		//$('select').not('.disabled').material_select();
+		//$('select:not([multiple])').material_select();
+		$(".button-collapse").sideNav();
+		$('.modal-trigger').leanModal();
+		$('ul.tabs').tabs();
+		$('ul.tabs').tabs('select_tab', 'tab_id');
+		$('.datepicker').pickadate({
+		    selectMonths: true, // Creates a dropdown to control month
+		    selectYears: 150 // Creates a dropdown of 15 years to control year
+		  	//yearRange: "1900:2012",
+		  	//changeYear: true,
+		  });
+			});
+		$('.parallax').parallax();
+
+</script>
+</body>
+</html>

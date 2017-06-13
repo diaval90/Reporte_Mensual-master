@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Inicio - Bienvenidos
+{% endblock  %}
+
+{% block content %}
+	<div class="row content-header">
+	<div class="container">
+      <div  id="contenedor" class="col s12 m12 l12">
+        <div id="car" class="card z-depth-3 hoverable" >
+			<h5 id="cn" align="center ">ENERO</h5>
+			<div class="divider"></div><br>
+			<div >
+				{% if reporte_validar %}
+					{% for r in  reporte_validar %}
+						<p><b>Nombre del reporte:</b> {{r.nombre_adjunto}} </p>
+						<p><b>Adjunto:</b> {{r.adjunto_exel}}  <a href="{{r.adjunto_exel.url}} " title="">(Descargar)</a></p>								
+						<p><b>Fecha:</b> {{r.fecha}}</p>
+						<br>
+						<center>
+						<a class="btn" href="/del/reporte_enero/{{r.id}}">Eliminar</a>
+						<a href="{% url 'vista_index' %}" class="btn btn-sm btn-curious-blue-variant-1">Volver</a>
+						</center>
+						
+					{% endfor %}
+					
+				{% else %}
+					<form action="." method = "POST" enctype="multipart/form-data">
+						{% csrf_token %}
+						{{ form.as_p }}
+						<br>
+						<center>
+							<button class="btn btn-primary" type="submit" > Guardar </button>
+							<a href="{% url 'vista_index' %}" class="btn btn-sm btn-curious-blue-variant-1">Volver</a>				
+						</center>
+						
+					</form>
+				{% endif %}
+			</div>	
+			
+		</div>
+	</div>
+</div>
+</div>
+{% endblock  %}

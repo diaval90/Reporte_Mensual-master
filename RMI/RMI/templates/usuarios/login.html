@@ -1,0 +1,50 @@
+	{% extends 'base.html' %}
+
+{% block title %}
+	Login
+{% endblock  %}
+
+{% block head %}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+	<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
+	<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="/media/css/login/style.css">
+    
+{% endblock %}
+
+{% block content_inicio %}
+
+	<div class="pen-title">
+	  <h1>Reporte Mensual Instructor</h1><span> 
+	</div>
+	<!-- Form Module-->
+	<div class="module form-module">
+	  <div></div>
+	  <div class="form">
+	    <h2 align="center">Ingresa a tu cuenta</h2>
+	    <form action="." method = "POST" >
+			{% csrf_token %}			
+			{{ form.as_p }}		
+			<button type="submit" value="Login">Login</button>			
+		</form>		
+	  </div>	  
+	</div>	
+	
+	
+{% endblock  %}
+
+{% block script %}
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	<script src="/media/js/login/index.js"></script>
+
+{% endblock %}
+
+<!--
+	<div align="center">
+		<form action="." method = "POST" align="center">
+			{% csrf_token %}			
+			{{ form.as_p }}		
+			<input class="btn-danger" type="submit" value="Login">
+		</form>		
+	</div>
+-->

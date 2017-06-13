@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{% block title %}{% endblock  %}</title>
+
+  	{% if user.is_authenticated %}
+  	<link rel="icon" href="/media/images/favicon.png" sizes="32x32">
+ 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="/media/css/materialize.min.css"/>
+	<!--<link rel="stylesheet" type="text/css" href="/media/css/materialize.css"/>-->
+	<link rel="stylesheet" type="text/css" href="/media/css/styles.css"/>	<!-- Favicons-->
+	
+	<!--<link rel="stylesheet" type="text/css" href="/static/css/materialize.css"/>-->
+		
+	
+	{% else %}
+		{% block head %}  	
+  		{% endblock  %}
+
+	{% endif %}
+  	
+</head>
+<body>
+	{% if user.is_authenticated %}
+	 <nav class="teal darken-1" role="navigation">
+		
+		<img src="/media/images/Logos-sena-blanco.png" width="110px" height="70px" float="left">
+		<a  href="{% url 'vista_index' %}" class="brand-logo hide-on-med-and-down" float="left"><font size="5">Reporte Mensual Instructor</font></a>		
+		  <ul class="right ">
+		  	<li><a  href="{% url 'vista_index' %}">Inicio</a></li>
+		  	{% if user.is_staff %}
+		  		<li><a  href="{% url 'vista_registro' %}">Registrar</a></li>
+		  		<li><a  href="/instructores/page/1">Instructores</a></li>
+		  	{% else %}			  		
+		  		<li><a  href="{% url 'vista_user' %}">Ver Perfil</a></li>
+		  	{% endif %}		  	 
+			 <li><a  href="{% url 'vista_logout' %}">Logout</a></li>
+		  </ul>		  
+		
+	 </nav>  
+	  <!--
+	  <nav class=" teal darken-1 " class="menu-header">
+		<div id="colnav" class="nav-wrapper teal darken-1">
+		<a href="http://oferta.senasofiaplus.edu.co/" class="brand-logo left"><img src="/media/images/Logos-sena-blanco.png" width="110px" height="70px"></a>
+		<a  href="{% url 'vista_index' %}" class="brand-logo center" padding = "200px">Reporte Mensual Instructor</a>
+		<ul>			
+			<li><a  href="{% url 'vista_logout' %}" class="brand-logo right" padding = "200px" ><h5>Logout</h5></a></li>
+		</ul>	
+		 
+		</div>
+	  </nav>  
+	  -->
+	  <div class="container">
+		<div class="section">
+			{% block content %}
+			{% endblock %}	
+		</div>
+		<br><br>
+		<div class="section">
+		</div>
+	  </div>		
+	  <script type="text/javascript" src="/media/js/jquery-2.1.1.min.js"></script>
+	  <script type="text/javascript" src="/media/js/jquery-2.1.4.js"></script>
+	  <script type="text/javascript" src="/media/js/jquery.js"></script>
+	  <script type="text/javascript" src="/media/js/myscript.js"></script>
+	  <script type="text/javascript" src="/media/js/materialize.js"></script>
+	  <script type="text/javascript" src="/media/js/materialize.min.js"></script> 
+    {% else %}			
+		
+		{% block content_inicio %}
+		{% endblock %}
+
+		{% block script %}		
+		{% endblock%}
+						
+	{% endif %}	
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

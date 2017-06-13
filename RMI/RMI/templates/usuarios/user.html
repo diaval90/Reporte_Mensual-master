@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Ver Perfil
+{% endblock  %}
+
+{% block content %}
+	<div class="row content-header">
+	<div class="container">
+      <div  id="contenedor" class="col s12 m6 l12">
+        <div id="car" class="card z-depth-3 hoverable">
+        	{% if info_enviado %}
+        		<h5 id="cn" align="center ">CAMBIOS GUARDADOS SATISFACTORIAMENTE</h5>
+        		<br>
+        		<a class="btn" href="{% url 'vista_user' %}">Perfil</a>
+        	{% else %}
+        		<h5 id="cn" align="center ">PERFIL</h5>
+				<div class="divider"></div><br>
+				<br>
+				<font size="4">
+					<p><b>Nombres: </b>{{ user.first_name }}</p>
+					<p><b>Apellidos: </b>{{ user.last_name }}</p>
+					<p><b>Cedula: </b>{{ user.username }}</p>
+					<p><b>Correo: </b>{{ user.email }}</p>
+					<p><b>Teléfono: </b>{{ user.user_profile.telefono }}</p>
+				</font>
+				<br><div class="divider"></div>
+				<br>
+				<center>
+					<a class="btn" href="{% url 'vista_edit_user' %}">Editar</a>
+					<a class="btn" href="{% url 'vista_edit_password' %}">Cambiar Clave</a>
+					<a href="{% url 'vista_index' %}" class="btn btn-sm btn-curious-blue-variant-1">Volver</a>
+				</center>
+        	{% endif %}
+        	
+			
+		</div>
+	</div>
+</div>
+</div>
+{% endblock  %}

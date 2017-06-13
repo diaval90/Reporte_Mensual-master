@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Reporte Mensual Instructor
+{% endblock  %}
+
+{% block content %}
+	
+        <div id="car" class="card z-depth-3 hoverable" >
+        	{% if user.is_staff %}
+        		<h5 id="cn" align="center "><p>Bienvenido Administrador(a) {{usuario.first_name}} {{usuario.last_name}}, seleccione un mes para consultar reportes ingresados</p></h5>
+				<div class="divider"></div><br>
+				<center>
+					<table class="responsive-table"> 
+
+			        <tbody>
+			          <tr>
+			          	{% if mes_enero_admin %}
+			          		<td><a class="cambio" id="botton_tam" href="/consultar/page/1/1" title="">Enero</a></td>
+			          	{% else %}
+			          		 <td><a class="btn" style='width:150px; height:35px' href="/consultar/page/1/1" title="">Enero</a></td>
+			          	{% endif %}
+
+			          	{% if mes_febrero_admin %}
+			          		<td><a class="cambio" style='width:150px; height:35px' href="/consultar/page/1/2" title="">Febrero</a></td>
+			          	{% else %}	
+			          		<td><a class="btn" style='width:150px; height:35px' href="/consultar/page/1/2" title="">Febrero</a></td>
+			          	{% endif %}
+
+			          	{% if mes_marzo_admin %}
+			          		<td><a class="cambio" style='width:150px; height:35px' href="/consultar/page/1/3" title="">Marzo</a></td>
+			          	{% else %}
+			          		<td><a class="btn" style='width:150px; height:35px' href="/consultar/page/1/3" title="">Marzo</a></td>	
+			          	{% endif %}		            
+			          </tr>
+			          <tr>
+			          	{% if mes_abril_admin %}
+			          		<td><a class="cambio" style='width:150px; height:35px' href="/consultar/page/1/4" title="">Abril</a></td>
+			          	{% else %}	
+			          		<td><a class="btn" style='width:150px; height:35px' href="/consultar/page/1/4" title="">Abril</a></td>
+			          	{% endif %}
+
+			          	{% if mes_mayo_admin %}
+			          		<td><a class="cambio" style='width:150px; height:35px' href="/consultar/page/1/5" title="">Mayo</a></td>
+			          	{% else %}	
+			          		<td><a class="btn" style='width:150px; height:35px' href="/consultar/page/1/5" title="">Mayo</a></td>
+			          	{% endif %}
+
+			          	{% if mes_junio_admin %}
+			          		<td><a class="cambio" style='width:150px; height:35px' href="/consultar/page/1/6" title="">Junio</a></td>
+			          	{% else %}	
+			          		<td><a class="btn" style='width:150px; height:35px' href="/consultar/page/1/6" title="">Junio</a></td>
+			          	{% endif %}		            
+			          </tr>
+			          <tr>
+			          	{% if mes_julio_admin %}
+			          		<td><a class="cambio" style='width:150px; height:35px' href="/consultar/page/1/7" title="">Julio</a></td>
+			          	{% else %}	
+			          		<td><a class="btn" style='width:150px; height:35px' href="/consultar/page/1/7" title="">Julio</a></td>
+			          	{% endif %}
+
+			          	{% if mes_agosto_admin %}
+			          		<td><a class="cambio" style='width:150px; height:35px' href="/consultar/page/1/8" title="">Agosto</a></td>
+			          	{% else %}	
+			          		<td><a class="btn" style='width:150px; height:35px' href="/consultar/page/1/8" title="">Agosto</a></td>
+			          	{% endif %}
+
+			          	{% if mes_septiembre_admin %}
+			          		<td><a class="cambio" id="botton_tam" href="/consultar/page/1/9" title="">Septiembre</a></td>
+			          	{% else %}	
+			          		<td><a class="btn" id="botton_tam" href="/consultar/page/1/9" title="">Septiembre</a></td>
+			          	{% endif %}		            
+			          </tr>
+			          <tr>
+			          	{% if  mes_octubre_admin %}
+			          		 <td><a class="cambio" id="botton_tam" href="/consultar/page/1/10" title="">Octubre</a></td>
+			          	{% else %}	
+			          		 <td><a class="btn" id="botton_tam" href="/consultar/page/1/10" title="">Octubre</a></td>		          		
+			          	{% endif %}
+
+			          	{% if  mes_noviembre_admin %}
+			          		<td><a class="cambio" id="botton_tam" href="/consultar/page/1/11" title="">Noviembre</a></td>
+			          	{% else %}	
+			          		<td><a class="btn" id="botton_tam" href="/consultar/page/1/11" title="">Noviembre</a></td>		          		
+			          	{% endif %}
+
+			          	{% if  mes_diciembre_admin %}
+			          		<td><a class="cambio" id="botton_tam" href="/consultar/page/1/12" title="">Diciembre</a></td>
+			          	{% else %}	
+			          		<td><a class="btn" id="botton_tam" href="/consultar/page/1/12" title="">Diciembre</a></td>		          		
+			          	{% endif %}		            
+			          </tr>
+			        </tbody>
+			      </table>		 
+				</center>			
+        	{% else %}
+        		<h5 id="cn" align="center "><p>Bienvenido(a) {{usuario.first_name}} {{usuario.last_name}}, seleccione un mes para ingresar el reporte</p></h5>
+				<div class="divider"></div><br>
+				<center>
+					<table class="responsive-table"> 
+
+			        <tbody>
+			          <tr>
+			          	{% if mes_enero_instructor %}
+			          		<td><a class="cambio" id="botton_tam" href="/reportes/1" title="">Enero</a></td>
+			          	{% else %}
+			          		 <td><a class="btn" style='width:150px; height:35px' href="/reportes/1" title="">Enero</a></td>
+			          	{% endif %}
+
+			          	{% if mes_febrero_instructor %}
+			          		<td><a class="cambio" style='width:150px; height:35px' href="/reportes/2" title="">Febrero</a></td>
+			          	{% else %}	
+			          		<td><a class="btn" style='width:150px; height:35px' href="/reportes/2" title="">Febrero</a></td>
+			          	{% endif %}
+
+			          	{% if mes_marzo_instructor %}
+			          		<td><a class="cambio" style='width:150px; height:35px' href="/reportes/3" title="">Marzo</a></td>
+			          	{% else %}
+			          		<td><a class="btn" style='width:150px; height:35px' href="/reportes/3" title="">Marzo</a></td>	
+			          	{% endif %}		            
+			          </tr>
+			          <tr>
+			          	{% if mes_abril_instructor %}
+			          		<td><a class="cambio" style='width:150px; height:35px' href="/reportes/4" title="">Abril</a></td>
+			          	{% else %}	
+			          		<td><a class="btn" style='width:150px; height:35px' href="/reportes/4" title="">Abril</a></td>
+			          	{% endif %}
+
+			          	{% if mes_mayo_instructor %}
+			          		<td><a class="cambio" style='width:150px; height:35px' href="/reportes/5" title="">Mayo</a></td>
+			          	{% else %}	
+			          		<td><a class="btn" style='width:150px; height:35px' href="/reportes/5" title="">Mayo</a></td>
+			          	{% endif %}
+
+			          	{% if mes_junio_instructor %}
+			          		<td><a class="cambio" style='width:150px; height:35px' href="/reportes/6" title="">Junio</a></td>
+			          	{% else %}	
+			          		<td><a class="btn" style='width:150px; height:35px' href="/reportes/6" title="">Junio</a></td>
+			          	{% endif %}		            
+			          </tr>
+			          <tr>
+			          	{% if mes_julio_instructor %}
+			          		<td><a class="cambio" style='width:150px; height:35px' href="/reportes/7" title="">Julio</a></td>
+			          	{% else %}	
+			          		<td><a class="btn" style='width:150px; height:35px' href="/reportes/7" title="">Julio</a></td>
+			          	{% endif %}
+
+			          	{% if mes_agosto_instructor %}
+			          		<td><a class="cambio" style='width:150px; height:35px' href="/reportes/8" title="">Agosto</a></td>
+			          	{% else %}	
+			          		<td><a class="btn" style='width:150px; height:35px' href="/reportes/8" title="">Agosto</a></td>
+			          	{% endif %}
+
+			          	{% if mes_septiembre_instructor %}
+			          		<td><a class="cambio" id="botton_tam" href="/reportes/9" title="">Septiembre</a></td>
+			          	{% else %}	
+			          		<td><a class="btn" id="botton_tam" href="/reportes/9" title="">Septiembre</a></td>
+			          	{% endif %}		            
+			          </tr>
+			          <tr>
+			          	{% if  mes_octubre_instructor %}
+			          		 <td><a class="cambio" id="botton_tam" href="/reportes/10" title="">Octubre</a></td>
+			          	{% else %}	
+			          		 <td><a class="btn" id="botton_tam" href="/reportes/10" title="">Octubre</a></td>		          		
+			          	{% endif %}
+
+			          	{% if  mes_noviembre_instructor %}
+			          		<td><a class="cambio" id="botton_tam" href="/reportes/11" title="">Noviembre</a></td>
+			          	{% else %}	
+			          		<td><a class="btn" id="botton_tam" href="/reportes/11" title="">Noviembre</a></td>		          		
+			          	{% endif %}
+
+			          	{% if  mes_diciembre_instructor %}
+			          		<td><a class="cambio" id="botton_tam" href="/reportes/12" title="">Diciembre</a></td>
+			          	{% else %}	
+			          		<td><a class="btn" id="botton_tam" href="/reportes/12" title="">Diciembre</a></td>		          		
+			          	{% endif %}		            
+			          </tr>
+			        </tbody>
+			      </table>		 
+				</center>			
+        	{% endif %}					
+		</div>	
+
+{% endblock  %}

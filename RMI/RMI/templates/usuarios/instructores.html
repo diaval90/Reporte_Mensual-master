@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Reporte Mensual Instructor
+{% endblock  %}
+
+{% block content %}
+<div align="center">
+	<div id="car" class="card z-depth-3 hoverable" >
+	<h5 id="cn" align="center "><p>INSTRUCTORES</p></h5>
+	<!--<div class="divider"></div><br>-->
+		
+		<head>
+		<title>Consulta:{% if query %} Results{% endif %}</title>
+		</head>
+		<form class="col s12" action="." method="GET">
+			<!--<label for="q">Instructor: </label>-->				
+			<input style='width:50%;' type="text" name="q" value="{{ query|escape }}">
+			<br>			
+			<button  style="btn" class="btn" type="submit" >Buscar </button>
+		</form>
+			
+		{% if query %}
+		<br>
+		<h5>Resultados para "{{ query|escape }}":</h5>
+			{% if results %}			    
+				<table class="col s12 bordered responsive-table highlight">
+					<theader>
+						<tr>
+							<th>Nombres</th>	
+							<th>Apellidos</th>									
+							<th>Cedula</th>
+							<th>Teléfono</th>
+							<th></th>
+							<th></th>
+							<th></th>												
+						</tr>
+					</theader>					
+					<tbody>
+						{% for i in results %}
+						<tr>
+							<td>{{ i.first_name }}</td>
+							<td>{{ i.last_name }}</td>				
+							<td>{{ i.username }}</td>	
+							<td>{{ i.user_profile.telefono }}</td>		
+							<td><a href="/admin_user/{{i.id}}" title="">(Ver Perfil)</a></td>		
+							<td><a href="/admin_edit_user/{{i.id}}" title="">(Editar)</a></td>	
+							<td><a href="/admin_edit_password/{{i.id}}" title="">(Cambiar Clave)</a></td>					
+						</tr>
+						{% endfor %}			
+					</tbody>							
+				</table>
+			{% else %}
+			  <p>No se encuentra el instructor solicitado</p>
+			{% endif %}
+		{% endif %}		
+		<br><br><br><br>
+		{% if mostrar %}
+			{% if instructores %}						
+				<!--<li> Tipo de pqrs:{{ p.tipo_pqrs}}; Mensaje: {{ p.mensaje}}</li>-->
+				<table class="col s12 bordered responsive-table highlight">
+					<theader>
+						<tr>
+							<th>Nombres</th>	
+							<th>Apellidos</th>										
+							<th>Cedula</th>
+							<th>Teléfono</th>
+							<th></th>
+							<th></th>
+							<th></th>												
+						</tr>
+					</theader>					
+					<tbody>
+						{% for i in instructores %}
+						<tr>
+							<td>{{ i.first_name }}</td>	
+							<td>{{ i.last_name }}</td>			
+							<td>{{ i.username }}</td>	
+							<td>{{ i.user_profile.telefono }}</td>	
+							<td><a href="/admin_user/{{i.id}}" title="">(Ver Perfil)</a></td>		
+							<td><a href="/admin_edit_user/{{i.id}}" title="">(Editar)</a></td>	
+							<td><a href="/admin_edit_password/{{i.id}}" title="">(Cambiar Clave)</a></td>					
+						</tr>
+						{% endfor %}			
+					</tbody>							
+				</table>
+									
+			{% else %}
+				<center><p><h5>No existen instructores registrados</h5></p></center>				
+			{% endif %}
+			<br>
+			{% if instructores %}
+			<div class = "pagination">
+				<div class = "pagination pagination-centered">
+					<ul class="pag">
+						<li><a href="/instructores/page/1"> {{primera}} </a></li>
+						{% if instructores.has_previous %}
+							<li><a href="/instructores/page/{{ instructores.previous_page_number }}" > Anterior</a></li>
+						{% else %}
+							<li ><a href="#">Anterior</a></li>
+						{% endif %}
+
+						{% if instructores.has_next %}
+							<li><a href="/instructores/page/{{ instructores.next_page_number }}" > Siguiente</a></li>
+						{% else %}
+							<li><a href="#"> Siguiente</a></li>	
+						{% endif %}
+							<li><a href="/instructores/page/{{ instructores.paginator.num_pages }}"> {{ultima}} </a></li>
+					</ul>			
+				</div>		
+			</div>
+					<br>	
+					<h5>Pagina {{ instructores.number }} de {{ instructores.paginator.num_pages }}</h5>
+			{% endif %}					
+		{% endif %}
+		<br>
+		<center><a href="{% url 'vista_index' %}">Ir al inicio</a></center>
+	</div>	
+</div>
+		
+        		
+	  	
+	
+{% endblock  %}

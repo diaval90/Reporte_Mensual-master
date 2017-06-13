@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1><font color="blue">registro comision</h1></font>
+	<form method="POST" enctype="multipart/form-data">
+		{% csrf_token %}	
+		{{ form.as_p }}
+		---------------------------------------------------
+		{{ form2.as_p }}
+		---------------------------------------------------
+		{{ form3.as_p }}
+		---------------------------------------------------
+		{{ form4.as_p }}
+		---------------------------------------------------
+		{{ form5.as_p }}
+		---------------------------------------------------
+		{{ form6.as_p }}
+		---------------------------------------------------
+		{{ form7.as_p }}
+		---------------------------------------------------
+		<button type="submit" class="save btn btn-default">guardar</button>
+	</form>
+{% endblock %}
